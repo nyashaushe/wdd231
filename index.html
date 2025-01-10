@@ -3,69 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chamber of Commerce </title>
-    <meta name="description" content="Chamber of Commerce Website">
-    <meta name="author" content="nyasha Shepard Ushewokunze">
-    <link rel="stylesheet" href="styles/index.css">
-    <script src="index.js" defer></script>
+    <meta name="description" content="WDD 231 course home page - demonstrating HTML, CSS, and JavaScript skills">
+    <meta name="author" content="Nyasha Ushewokunze">
+    <title>WDD 231 | Nyasha Ushewokunze</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    
+    <!-- Scripts -->
+    <script src="scripts/dates.js" defer></script>
+    <script src="scripts/menu.js" defer></script>
+    <script src="scripts/courses.js" defer></script>
+    <script src="scripts/index.js" defer></script>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
-        <h1>Chamber of Commerce</h1>
+        <div class="header-content">
+            <img src="images/me.jpg" alt="Profile" class="profile-image">
+            <h1>Nyasha Ushewokunze</h1>
+        </div>
         <nav>
-            <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#chamber">Chamber</a></li>
+            <button id="menu-button" aria-label="Menu" aria-expanded="false">
+                <span>☰</span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="chamber/">Chamber</a></li>
                 <li><a href="https://github.com/nyashaushe">GitHub Profile</a></li>
                 <li><a href="https://www.linkedin.com/in/nyashaushewokunze/">LinkedIn</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Section -->
-    <main>
-        <!-- First Section -->
-        <section id="home">
-            <h2>Welcome to the Website</h2>
-            <p>This is where the content of your home section goes.</p>
-            <img src="image.jpg" alt="Description of the image" width="200" height="200">
+    <main >
+        <section id="course-work">
+            <h2>Course Work</h2>
+            <ul class="coursework-list">
+                <!-- Coursework items will be added here -->
+               <li></li>
+               <li></li>
+               <li></li>
+            </ul>
         </section>
 
-        <!-- Second Section -->
-        <section id="chamber">
-            <h2>Chamber of Commerce</h2>
-            <p>This section will contain information about the Chamber of Commerce project in the future.</p>
+        <section id="course-work">
+            <h2>Harare, Zimbabwe</h2>
+            <div class="image-container">
+                <img src="images/zim_flag.jpeg" alt="Zimbabwe Flag, Zimbabwe" width="800" height="400">
+                <p class="caption">My pride Land</p>
+            </div>
         </section>
 
-        <!-- Third Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Some details about yourself or the purpose of the website can go here.</p>
+        <section id="certificate">
+            <h2>Web and Computer Programming Certificate</h2>
+            <div class="filter-container">
+                <button id="filter-all" class="active">All Courses</button>
+                <button id="filter-WDD">WDD Courses</button>
+                <button id="filter-CSE">CSE Courses</button>
+            </div>
+            <div id="course-list"></div>
+            <p class="total">Total Credits: <span id="total-credits">0</span></p>
         </section>
-
-        <!-- Courses Section -->
-    <section id="courses">
-        <h2>Web and Computer Programming Certificate Courses</h2>
-
-        <!-- Filter buttons -->
-        <button id="filter-all">All Courses</button>
-        <button id="filter-WDD">WDD Courses</button>
-        <button id="filter-CSE">CSE Courses</button>
-
-        <!-- Courses container -->
-        <div id="course-list"></div>
-
-        <!-- Total Credits -->
-        <p>Total Credits: <span id="total-credits"></span></p>
-    </section>
-
     </main>
 
-    <!-- Footer Section -->
     <footer>
-        <p>&copy; <span id="currentyear"></span> Nyasha Ushewokunze, Zimbabwe</p>
+        <p>&copy; <span id="currentyear"></span> Nyasha Ushewokunze | Zimbabwe</p>
         <p id="lastModified"></p>
     </footer>
 </body>
