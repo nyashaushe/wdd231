@@ -1,9 +1,4 @@
-// Display current year dynamically
-document.getElementById('currentyear').textContent = new Date().getFullYear();
-
-// Display last modified date dynamically
-document.getElementById('lastModified').textContent = "Last modified: " + document.lastModified;
-
+// Course data array
 const courses = [
     {
         subject: 'CSE',
@@ -67,58 +62,138 @@ const courses = [
     }
 ];
 
-// Function to filter and display courses based on selected category
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize dynamic elements
+    initializePage();
+    
+    // Add event listeners for filter buttons
+    addFilterListeners();
+    
+    // Display initial courses
+    displayCourses(courses);
+});
+
+// Initialize page elements
+function initializePage() {
+    // Set current year in footer
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.getElementById('currentyear');
+    if (yearElement) {
+        yearElement.textContent = currentYear;
+    }
+
+    // Set last modified date
+    const lastModifiedElement = document.getElementById('lastModified');
+    if (lastModifiedElement) {
+        lastModifiedElement.textContent = `Last Modified: ${document.lastModified}`;
+    }
+
+    // Initialize hamburger menu
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+    }
+}
+
+// Toggle mobile menu
+function toggleMenu() {
+    const nav = document.querySelector('nav ul');
+    if (nav) {
+        nav.classList.toggle('show');
+    }
+}
+
+// Add event listeners for filter buttons
+function addFilterListeners() {
+    const filterButtons = {
+        'filter-all': 'all',
+        'filter-WDD': 'WDD',
+        'filter-CSE': 'CSE'
+    };
+
+    for (const [buttonId, category] of Object.entries(filterButtons)) {
+        const button = document.getElementById(buttonId);
+        if (button) {
+            button.addEventListener('click', () => filterCourses(category));
+        }
+    }
+}
+
+// Filter courses based on category
 function filterCourses(category) {
     let filteredCourses = courses;
-
+    
     if (category !== 'all') {
         filteredCourses = courses.filter(course => course.subject === category);
     }
-
+    
     displayCourses(filteredCourses);
 }
 
-// Function to display courses dynamically
+// Display courses in the DOM
 function displayCourses(courseList) {
     const courseContainer = document.getElementById('course-list');
-    courseContainer.innerHTML = ''; // Clear previous courses
+    if (!courseContainer) return;
 
+    // Clear previous courses
+    courseContainer.innerHTML = '';
+    
     let totalCredits = 0;
 
+    // Create and append course cards
     courseList.forEach(course => {
-        const courseCard = document.createElement('div');
-        courseCard.classList.add('course-card');
-
-        // Highlight completed courses
-        if (course.completed) {
-            courseCard.classList.add('completed');
-        }
-
-        // Add course details to the card
-        courseCard.innerHTML = `
-            <h3>${course.title}</h3>
-            <p><strong>Subject:</strong> ${course.subject}</p>
-            <p><strong>Course Number:</strong> ${course.number}</p>
-            <p><strong>Credits:</strong> ${course.credits}</p>
-            <p><strong>Description:</strong> ${course.description}</p>
-            <p><strong>Technology Used:</strong> ${course.technology.join(', ')}</p>
-            <p>Status: ${course.completed ? 'Completed' : 'In Progress'}</p>
-        `;
-
+        const courseCard = createCourseCard(course);
         courseContainer.appendChild(courseCard);
-
-        // Add credits to the total
         totalCredits += course.credits;
     });
 
-    // Display total credits for the courses being shown
-    document.getElementById('total-credits').textContent = totalCredits;
+    // Update total credits display
+    updateTotalCredits(totalCredits);
 }
 
-// Initially display all courses
-displayCourses(courses);
+// Create a course card element
+function createCourseCard(course) {
+    const courseCard = document.createElement('div');
+    courseCard.classList.add('course-card');
+    
+    if (course.completed) {
+        courseCard.classList.add('completed');
+    }
 
-// Add event listeners for filter buttons
-document.getElementById('filter-all').addEventListener('click', () => filterCourses('all'));
-document.getElementById('filter-WDD').addEventListener('click', () => filterCourses('WDD'));
-document.getElementById('filter-CSE').addEventListener('click', () => filterCourses('CSE'));
+    courseCard.innerHTML = `
+        <h3>${course.subject} ${course.number} - ${course.title}</h3>
+        <p><strong>Credits:</strong> ${course.credits}</p>
+        <p><strong>Description:</strong> ${course.description}</p>
+        <p><strong>Technologies:</strong> ${course.technology.join(', ')}</p>
+        <p><strong>Status:</strong> ${course.completed ? 'Completed' : 'In Progress'}</p>
+    `;
+
+    return courseCard;
+}
+
+// Update total credits display
+function updateTotalCredits(total) {
+    const totalCreditsElement = document.getElementById('total-credits');
+    if (totalCreditsElement) {
+        totalCreditsElement.textContent = total;
+    }
+}
+
+// Handle scroll events for header visibility
+let lastScrollPosition = 0;
+window.addEventListener('scroll', () => {
+    const currentScrollPosition = window.pageYOffset;
+    const header = document.querySelector('header');
+    
+    if (header) {
+        if (currentScrollPosition > lastScrollPosition) {
+            // Scrolling down
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            // Scrolling up
+            header.style.transform = 'translateY(0)';
+        }
+        lastScrollPosition = currentScrollPosition;
+    }
+});
