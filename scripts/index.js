@@ -1,3 +1,25 @@
+// Set current year and last modified date
+document.addEventListener('DOMContentLoaded', () => {
+    // Set current year
+    document.getElementById('currentyear').textContent = new Date().getFullYear();
+    
+    // Set last modified date
+    document.getElementById('lastModified').textContent = `Last Modified: ${document.lastModified}`;
+});
+
+
+// Toggle menu functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('menu-button');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuButton.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+        const isExpanded = navMenu.classList.contains('show');
+        menuButton.setAttribute('aria-expanded', isExpanded);
+    });
+});
+
 // Course data array
 const courses = [
     {
