@@ -87,6 +87,35 @@ main {
     padding: 1rem;
 }
 
+main h1 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    align-content: center;
+}
+.sections-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* For screens larger than 768px */
+@media screen and (min-width: 768px) {
+    .sections-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .sections-container section {
+        flex: 1;
+        max-width: 48%;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+}
 section {
     margin-bottom: 2rem;
     background: white;
