@@ -183,14 +183,10 @@ function createCourseCard(course) {
         courseCard.classList.add('completed');
     }
 
+    // Create HTML content for the course card with course details
     courseCard.innerHTML = `
-        <h3>${course.subject} ${course.number} - ${course.title}</h3>
-        <p><strong>Credits:</strong> ${course.credits}</p>
-        <p><strong>Description:</strong> ${course.description}</p>
-        <p><strong>Technologies:</strong> ${course.technology.join(', ')}</p>
-        <p><strong>Status:</strong> ${course.completed ? 'Completed' : 'In Progress'}</p>
+         <h3>${course.subject} ${course.number}</h3>
     `;
-
     return courseCard;
 }
 
@@ -205,7 +201,7 @@ function updateTotalCredits(total) {
 // Handle scroll events for header visibility
 let lastScrollPosition = 0;
 window.addEventListener('scroll', () => {
-    const currentScrollPosition = window.pageYOffset;
+    const currentScrollPosition = window.scrollY;
     const header = document.querySelector('header');
     
     if (header) {
@@ -219,3 +215,6 @@ window.addEventListener('scroll', () => {
         lastScrollPosition = currentScrollPosition;
     }
 });
+
+
+   
