@@ -17,33 +17,6 @@ body {
     padding: 0;
 }
 
-/* Header Styles */
-header {/* Base Styles */
-:root {
-    /* Enhanced color scheme with better contrast */
-    --primary-color: #1e4785;
-    --secondary-color: #0d2848;
-    --accent-color: #3182ce;
-    --text-color: #2d3748;
-    --background-color: #ffffff;
-    --completed-color: #22863a;
-    
-    /* Add common spacing variables */
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-    
-    /* Add common transitions */
-    --transition-speed: 0.3s;
-}
-
-/* Modern CSS Reset Additions */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
 body {
     font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
