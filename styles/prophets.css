@@ -1,0 +1,103 @@
+/* Apply general page styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    color:black;
+    text-align: center;
+    padding: 10px 0;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+/* Style the container for the cards */
+#cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid with auto-fit */
+    gap: 20px;
+    padding: 20px;
+    width: 80%;
+    max-width: 1200px;
+   
+}
+
+/* Style individual prophet cards */
+section {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 30px;
+    
+}
+
+/* Style the prophet's name */
+h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Style the paragraph elements (DOB and POB) */
+p {
+    font-size: 1em;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Style the image of the prophet */
+img {
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+}
+
+/* Add some styling to make the cards more interactive */
+section:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  header h1 {
+      font-size: 1.5em;
+  }
+
+  h2 {
+      font-size: 1.2em;
+  }
+
+  p {
+      font-size: 0.9em;
+  }
+}
+
+footer {
+    margin-top: 20px;  
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px ;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
