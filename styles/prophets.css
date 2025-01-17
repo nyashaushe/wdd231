@@ -11,7 +11,8 @@ body {
 }
 
 header {
-    color:black;
+    background-color: #333;
+    color: white;
     text-align: center;
     padding: 10px 0;
 }
@@ -29,7 +30,6 @@ header h1 {
     padding: 20px;
     width: 80%;
     max-width: 1200px;
-   
 }
 
 /* Style individual prophet cards */
@@ -41,7 +41,7 @@ section {
     text-align: center;
     padding: 20px;
     padding-bottom: 30px;
-    
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 /* Style the prophet's name */
@@ -71,33 +71,68 @@ img {
 section:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
-    transition: all 0.3s ease-in-out;
 }
 
-
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  header h1 {
-      font-size: 1.5em;
-  }
-
-  h2 {
-      font-size: 1.2em;
-  }
-
-  p {
-      font-size: 0.9em;
-  }
-}
-
+/* Style the footer */
 footer {
-    margin-top: 20px;  
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 30px ;
+    padding: 10px 0;
     width: 100%;
-    position: fixed;
+    position: absolute;
     bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    #cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    p {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 576px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 0.85em;
+    }
+
+    #cards {
+        grid-template-columns: 1fr;
+    }
 }
