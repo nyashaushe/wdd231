@@ -73,16 +73,7 @@ section:hover {
     transform: scale(1.05);
 }
 
-/* Style the footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-}
+
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
@@ -135,4 +126,15 @@ footer {
     #cards {
         grid-template-columns: 1fr;
     }
+}
+
+/* Style the footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  width: 100%;
+  position: bottom;
+  bottom: 0;
 }
