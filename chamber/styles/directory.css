@@ -143,7 +143,7 @@ footer p {
 
 
 /* Media queries for different screen sizes */
-@media (min-width: 545px) {
+@media (min-width: 420px) {
     header h1 {
         font-size: 1em;
     }
@@ -165,3 +165,4 @@ footer p {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
+
