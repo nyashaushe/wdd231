@@ -129,7 +129,7 @@ nav a {
 /* Button Styling */
 button {
     background-color: whitesmoke;
-    color: white;
+    /* color: white; */
     padding: 1.5rem 1rem;
     border: none;
     cursor: pointer;
