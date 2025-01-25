@@ -1,0 +1,23 @@
+/* Mobile-first responsiveness */
+@media (max-width: 768px) {
+    .business-section {
+        justify-content: center; /* Center the cards on medium screens */
+    }
+
+    .spotlight-card {
+        width: calc(50% - 1.5rem); /* On medium screens, make the cards 50% width */
+    }
+}
+
+@media (max-width: 480px) {
+    .business-section {
+        flex-direction: column; /* Stack the cards vertically on very small screens */
+        align-items: center;
+    }
+
+    .spotlight-card {
+        width: 100%; /* Full width on small screens */
+        margin-bottom: 1rem; /* Add space between cards */
+    }
+}
+
