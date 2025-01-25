@@ -1,103 +1,229 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif; /* Sets the font for the whole page */
-    margin: 0; /* Removes the default margin */
-    padding: 0; /* Removes the default padding */
-    background-color: #f9f9f9; /* Light background color for the page */
-    color: #333; /* Dark color for the text */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 .container {
-    display: flex; /* Flexbox layout for the container */
-    justify-content: space-between; /* Distributes content with space between */
-    align-items: center; /* Aligns items vertically at the center */
-    padding: 1rem 2rem; /* Padding around the content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
 }
 
 header {
-    background-color: #444; /* Dark background for the header */
-    color: white; /* White text color for the header */
+    background-color: #2b5797;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    width: 100%;
 }
 
-nav ul {
-    list-style: none; /* Removes the default list styling */
-    margin: 0; /* Removes margin */
-    padding: 0; /* Removes padding */
-    display: flex; /* Flexbox layout for navigation items */
-    gap: 1rem; /* Space between navigation items */
+#menu-button {
+    display: flex;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+
+#nav-menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#nav-menu.show {
+    display: block;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: var(--accent-color);
 }
 
 nav a {
-    color: white; /* White color for the links */
-    text-decoration: none; /* Removes underline from links */
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem;
+    transition: background-color 0.3s;
 }
 
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hero Section */
+/* Hero Section */
 .hero {
-    background-image: url('/chamber/images/agripro.png'); /* Background image for the hero section */
-    background-size: cover; /* Ensures the image covers the full area */
-    background-position: center; /* Centers the background image */
-    color: white; /* White text color */
-    text-align: center; /* Centers the text */
-    height: 20vh; /* Set height to 20% of the viewport */
-    display: flex; /* Flexbox layout for the hero section */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Align items horizontally */
-    image-rendering: pixelated; /* Makes the image appear pixelated */
-    padding: 2rem 0; /* Padding on the top and bottom */
+    background-image: url('/chamber/images/zim_flag.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    height: 60vh; /* Increased height to make the hero more prominent */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative; /* Allows for overlay adjustments */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Adds subtle shading for text readability */
 }
 
 .hero img {
-    width: 100%; /* Makes the image width 100% of its container */
-    height: 50vh;
-    max-width: 200px; /* Limits the maximum width of the image */
-    border-radius: 50%; /* Makes the image round */
+    max-width: 300px; /* Slightly larger image for prominence */
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 1rem; /* Adds spacing below the image */
 }
 
+.hero h1 {
+    font-size: 2.5rem; /* Larger font size for the headline */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ensures text is legible on light backgrounds */
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.25rem; /* Slightly larger subtitle */
+    margin-top: 0.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Optional Overlay for Better Contrast */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent dark overlay */
+    z-index: 1;
+}
+
+.hero * {
+    position: relative;
+    z-index: 2; /* Ensures text and image are above the overlay */
+}
+
+
+/* Button Styling */
 button {
-    background-color: #007bff; /* Blue background for the button */
-    color: white; /* White text color */
-    padding: 0.5rem 1rem; /* Padding around the button text */
-    border: none; /* No border */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 1rem; /* Sets the font size */
+    background-color: whitesmoke;
+    color: white;
+    padding: 1.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
 }
 
+/* Info Section */
 .info {
-    display: grid; /* Grid layout for the info section */
-    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
-    gap: 1rem; /* Space between grid items */
-    padding: 2rem; /* Padding inside the section */
-    background-color: white; /* White background for the section */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+    background-color: white;
 }
 
 .info div {
-    border: 1px solid #ccc; /* Light border around each item */
-    padding: 1rem; /* Padding inside the items */
-    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
     margin: 15px;
 }
 
-/* Business Spotlight Styling */
-.business-section {
-    display: grid; /* Grid layout  */
-    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
-    gap: 1rem; /* Space between grid items */
-    padding: 2rem; /* Padding inside the section */
-    background-color: white; /* White background for the section */
+/* Member List Styles */
+.spotlight-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 1rem;
 }
 
+.spotlight-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.spotlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.spotlight-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.spotlight-card h3 {
+    margin: 0.5rem 0;
+    color: #2b5797;
+}
+
+.spotlight-card p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+.spotlight-card a {
+    color: #2b5797;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.spotlight-card a:hover {
+    text-decoration: underline;
+}
 
 /* Footer Styling */
 footer {
-    background-color: #444; /* Dark background for the footer */
-    color: white; /* White text color for footer */
-    text-align: center; /* Center the footer content */
-    padding: 2rem 1rem; /* Padding inside the footer */
-    margin-top: 2rem; /* Margin above the footer */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    background-color: #2b5797;
+    color: white;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+footer p {
+    text-align: center;
+    justify-content: center;
+
 }
 
 footer a {
-    color: #007bff; /* Blue color for footer links */
-    text-decoration: none; /* No underline for links */
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
 }
