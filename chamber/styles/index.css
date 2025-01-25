@@ -127,7 +127,7 @@ nav a {
 
 
 /* Button Styling */
-button {
+.button {
     background-color: whitesmoke;
     /* color: white; */
     padding: 1.5rem 1rem;

@@ -23,8 +23,6 @@
 
 
 /* HOME PAGE FOOTER */
-
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
@@ -43,6 +41,7 @@
 
     .spotlight-cards {
         gap: 1rem;
+        padding: 10px;
     }
 
     .spotlight-card {
