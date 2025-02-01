@@ -225,7 +225,7 @@ nav ul {
     }
 
     .membership-cards {
-        grid-template-columns:(2, 1fr);
+        grid-template-columns: 1fr;
     }
 
     .card {
