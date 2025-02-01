@@ -1,36 +1,57 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize dynamic elements
-    initializePage();
-    
-    // Add event listeners for filter buttons
-    addFilterListeners();
-    
-    // Display initial courses
-    displayCourses(courses);
+    // Initialize hamburger menu functionality
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const primaryNav = document.getElementById('primary-nav');
+
+    if (hamburgerBtn && primaryNav) {
+        // Toggle menu when hamburger is clicked
+        hamburgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent document click from immediately closing menu
+            primaryNav.classList.toggle('show');
+            const isExpanded = primaryNav.classList.contains('show');
+            hamburgerBtn.setAttribute('aria-expanded', isExpanded);
+            hamburgerBtn.innerHTML = isExpanded ? '✕' : '☰';
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburgerBtn.contains(e.target) && !primaryNav.contains(e.target)) {
+                primaryNav.classList.remove('show');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                hamburgerBtn.innerHTML = '☰';
+            }
+        });
+
+        // Close menu when window is resized above mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 767) {
+                primaryNav.classList.remove('show');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                hamburgerBtn.innerHTML = '☰';
+            }
+        });
+    }
+
+    // Set current year in footer
+    const yearElement = document.getElementById('currentyear');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+
+    // Set last modified date if element exists
+    const lastModifiedElement = document.getElementById('last-modified');
+    if (lastModifiedElement) {
+        lastModifiedElement.textContent = document.lastModified;
+    }
 });
-
-
-// Toggle menu functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.getElementById('menu-button');
-    const navMenu = document.getElementById('nav-menu');
-
-    menuButton.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-        const isExpanded = navMenu.classList.contains('show');
-        menuButton.setAttribute('aria-expanded', isExpanded);
-    });
-});
-
 
 // Initialize page elements
 function initializePage() {
     // Set current year in footer
-    const currentYear = new Date().getFullYear();
     const yearElement = document.getElementById('currentyear');
     if (yearElement) {
-        yearElement.textContent = currentYear;
+        yearElement.textContent = new Date().getFullYear();
     }
 
     // Set last modified date
@@ -46,7 +67,6 @@ function initializePage() {
     }
 }
 
-
 // Toggle mobile menu
 function toggleMenu() {
     const nav = document.querySelector('nav ul');
@@ -55,7 +75,6 @@ function toggleMenu() {
     }
 }
 
-
 // Handle scroll events for header visibility
 let lastScrollPosition = 0;
 window.addEventListener('scroll', () => {
@@ -63,13 +82,8 @@ window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
     
     if (header) {
-        if (currentScrollPosition > lastScrollPosition) {
-            // Scrolling down
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            // Scrolling up
-            header.style.transform = 'translateY(0)';
-        }
+        header.style.transform = currentScrollPosition > lastScrollPosition ? 
+            'translateY(-100%)' : 'translateY(0)';
         lastScrollPosition = currentScrollPosition;
     }
 });

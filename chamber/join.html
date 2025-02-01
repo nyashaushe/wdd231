@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the Timbuktu Chamber of Commerce">
+    <meta name="author" content="Nyasha Ushewokunze">
+    <title>Join - Timbuktu Chamber of Commerce</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/join.css">
+    <script src="scripts/index.js" defer></script>
+    <script src="scripts/join.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Timbuktu Chamber of Commerce</h1>
+            <button id="hamburger-btn" aria-label="Menu">☰</button>
+            <nav id="primary-nav">
+                <ul>
+                    <li><a href="discover.html">Discover</a></li>
+                    <li><a href="directory.html">Business Directory</a></li>
+                    <li><a href="join.html" class="active">Join</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Events</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="join-container">
+        <section class="form-section">
+            <h2>Join Our Chamber</h2>
+            <form method="get" action="thankyou.html">
+                <label for="firstname">First Name:
+                    <input type="text" id="firstname" name="firstname" required autocomplete="given-name" title="Please enter your first name">
+                </label>
+
+                <label for="lastname">Last Name:
+                    <input type="text" id="lastname" name="lastname" required autocomplete="family-name" title="Please enter your last name">
+                </label>
+
+                <label for="title">Position Title:
+                    <input type="text" id="title" name="title" pattern="[A-Za-z\s-]{7,}" autocomplete="organization-title" title="Please enter your position (minimum 7 characters, letters, hyphens, and spaces only)">
+                </label>
+
+                <label for="email">Email:
+                    <input type="email" id="email" name="email" required autocomplete="email" placeholder="example@domain.com" title="Please enter your email address">
+                </label>
+
+                <label for="phone">Mobile Phone:
+                    <input type="tel" id="phone" name="phone" required autocomplete="tel" title="Please enter your mobile phone number">
+                </label>
+
+                <label for="business">Business/Organization Name:
+                    <input type="text" id="business" name="business" required autocomplete="organization" title="Please enter your business name">
+                </label>
+
+                <label for="membership">Membership Level:
+                    <select id="membership" name="membership" required>
+                        <option value="">Select a Membership Level</option>
+                        <option value="np">NP Membership (Non-Profit)</option>
+                        <option value="bronze">Bronze Membership</option>
+                        <option value="silver">Silver Membership</option>
+                        <option value="gold">Gold Membership</option>
+                    </select>
+                </label>
+
+                <label for="description">Business Description:
+                    <textarea id="description" name="description" title="Please describe your business"></textarea>
+                </label>
+
+                <input type="hidden" id="timestamp" name="timestamp">
+
+                <input type="submit" value="Join the Chamber" class="submit-btn">
+            </form>
+        </section>
+
+        <section class="membership-cards">
+            <div class="card" id="np-card">
+                <h3>NP Membership</h3>
+                <p>For Non-Profit Organizations</p>
+                <p>Free</p>
+                <button onclick="openModal('np-modal')">Learn More</button>
+            </div>
+
+            <div class="card" id="bronze-card">
+                <h3>Bronze Membership</h3>
+                <p>Basic Benefits Package</p>
+                <p>$50/month</p>
+                <button onclick="openModal('bronze-modal')">Learn More</button>
+            </div>
+
+            <div class="card" id="silver-card">
+                <h3>Silver Membership</h3>
+                <p>Enhanced Benefits Package</p>
+                <p>$100/month</p>
+                <button onclick="openModal('silver-modal')">Learn More</button>
+            </div>
+
+            <div class="card" id="gold-card">
+                <h3>Gold Membership</h3>
+                <p>Premium Benefits Package</p>
+                <p>$200/month</p>
+                <button onclick="openModal('gold-modal')">Learn More</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="np-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>NP Membership Benefits</h2>
+            <ul>
+                <li>Basic directory listing</li>
+                <li>Networking events access</li>
+                <li>Monthly newsletter</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="bronze-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Bronze Membership Benefits</h2>
+            <ul>
+                <li>Enhanced directory listing</li>
+                <li>Quarterly spotlight feature</li>
+                <li>Event discounts</li>
+                <li>All NP benefits included</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="silver-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Silver Membership Benefits</h2>
+            <ul>
+                <li>Premium directory listing</li>
+                <li>Monthly spotlight feature</li>
+                <li>Business training access</li>
+                <li>All Bronze benefits included</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="gold-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Gold Membership Benefits</h2>
+            <ul>
+                <li>Featured directory listing</li>
+                <li>Weekly spotlight feature</li>
+                <li>VIP event access</li>
+                <li>Dedicated support</li>
+                <li>All Silver benefits included</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Timbuktu Chamber of Commerce | 10 Rue De La Paix | Timbuktu, Mali</p>
+        <p>Email: info@timbuktucc.org | Phone: (223) 555-2300</p>
+        <p>&copy; <span id="currentyear"></span> Timbuktu Chamber of Commerce</p>
+    </footer>
+</body>
+</html>
