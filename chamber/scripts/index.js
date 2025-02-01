@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hamburgerBtn && primaryNav) {
         // Toggle menu when hamburger is clicked
         hamburgerBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent document click from immediately closing menu
+            e.stopPropagation();
             primaryNav.classList.toggle('show');
             const isExpanded = primaryNav.classList.contains('show');
             hamburgerBtn.setAttribute('aria-expanded', isExpanded);
@@ -17,15 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!hamburgerBtn.contains(e.target) && !primaryNav.contains(e.target)) {
-                primaryNav.classList.remove('show');
-                hamburgerBtn.setAttribute('aria-expanded', 'false');
-                hamburgerBtn.innerHTML = '☰';
-            }
-        });
-
-        // Close menu when window is resized above mobile breakpoint
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 767) {
                 primaryNav.classList.remove('show');
                 hamburgerBtn.setAttribute('aria-expanded', 'false');
                 hamburgerBtn.innerHTML = '☰';

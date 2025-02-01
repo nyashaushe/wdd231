@@ -26,6 +26,7 @@ header h1 {
 
 }
 
+/* Remove or comment out any nav-related styles that might conflict with mobile.css */
 nav ul {
     list-style: none;
     padding: 0;
