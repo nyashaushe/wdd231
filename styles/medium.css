@@ -1,1 +1,35 @@
- 
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+    .discover-grid {
+        display: grid;
+        grid-template-areas:
+            "visit visit"
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .visit-message {
+        grid-area: visit;
+    }
+
+    .spotlight-card:nth-child(1) { grid-area: card1; }
+    .spotlight-card:nth-child(2) { grid-area: card2; }
+    .spotlight-card:nth-child(3) { grid-area: card3; }
+    .spotlight-card:nth-child(4) { grid-area: card4; }
+    .spotlight-card:nth-child(5) { grid-area: card5; }
+    .spotlight-card:nth-child(6) { grid-area: card6; }
+    .spotlight-card:nth-child(7) { grid-area: card7; }
+    .spotlight-card:nth-child(8) { grid-area: card8; }
+
+    /* Preserve hover effects for medium screens */
+    .discover-grid .spotlight-card img {
+        transition: transform 0.3s ease;
+    }
+
+    .discover-grid .spotlight-card:hover img {
+        transform: scale(1.05);
+    }
+} 

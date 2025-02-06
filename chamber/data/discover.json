@@ -1,0 +1,52 @@
+{
+    "attractions": [
+        {
+            "title": "Sankore Mosque",
+            "image": "sankore.webp",
+            "address": "Sankore District, Timbuktu, Mali",
+            "description": "Historic mosque and center of Islamic learning, part of Timbuktu's UNESCO World Heritage sites."
+        },
+        {
+            "title": "Djinguereber Mosque",
+            "image": "djinguereber.webp",
+            "address": "Central Timbuktu, Mali",
+            "description": "Iconic mud-brick mosque built in 1327, showcasing Sudano-Sahelian architectural style."
+        },
+        {
+            "title": "Ahmed Baba Institute",
+            "image": "ahmed-baba.webp",
+            "address": "Cultural District, Timbuktu, Mali",
+            "description": "Modern library and research center housing ancient manuscripts and documents."
+        },
+        {
+            "title": "Timbuktu Markets",
+            "image": "market.webp",
+            "address": "Market District, Timbuktu, Mali",
+            "description": "Vibrant traditional markets offering local crafts, spices, and cultural artifacts."
+        },
+        {
+            "title": "Sidi Yahya Mosque",
+            "image": "sidi-yahya.webp",
+            "address": "Sidi Yahya District, Timbuktu, Mali",
+            "description": "Historic mosque named after a holy man, featuring unique Sahelian architecture."
+        },
+        {
+            "title": "Desert Tours",
+            "image": "desert-tour.webp",
+            "address": "Sahara Gateway, Timbuktu, Mali",
+            "description": "Guided tours of the Sahara Desert, experiencing traditional Tuareg culture."
+        },
+        {
+            "title": "Manuscript Museum",
+            "image": "manuscripts.webp",
+            "address": "Heritage District, Timbuktu, Mali",
+            "description": "Museum showcasing ancient manuscripts and the rich literary history of Timbuktu."
+        },
+        {
+            "title": "Cultural Center",
+            "image": "cultural-center.webp",
+            "address": "Arts District, Timbuktu, Mali",
+            "description": "Modern facility hosting cultural events, exhibitions, and traditional performances."
+        }
+    ]
+} 
