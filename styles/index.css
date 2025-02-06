@@ -1,0 +1,171 @@
+/* Discover Page Specific Styles */
+.discover-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.visit-message {
+    background-color: #2b5797;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhance spotlight card for discover page */
+.discover-grid .spotlight-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.discover-grid .spotlight-card figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.discover-grid .spotlight-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.discover-grid .spotlight-card:hover img {
+    transform: scale(1.05);
+}
+
+.discover-grid .spotlight-card address {
+    font-style: normal;
+    color: #666;
+    margin: 0.5rem 0;
+}
+
+.discover-grid .spotlight-card .button {
+    margin-top: auto;
+    background-color: #2b5797;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.discover-grid .spotlight-card .button:hover {
+    background-color: #1a365d;
+}
+
+/* Small screens (320px to 640px) */
+@media screen and (max-width: 640px) {
+    .discover-grid {
+        display: grid;
+        grid-template-areas:
+            "visit"
+            "card1"
+            "card2"
+            "card3"
+            "card4"
+            "card5"
+            "card6"
+            "card7"
+            "card8";
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .visit-message {
+        grid-area: visit;
+    }
+
+    .spotlight-card:nth-child(1) { grid-area: card1; }
+    .spotlight-card:nth-child(2) { grid-area: card2; }
+    .spotlight-card:nth-child(3) { grid-area: card3; }
+    .spotlight-card:nth-child(4) { grid-area: card4; }
+    .spotlight-card:nth-child(5) { grid-area: card5; }
+    .spotlight-card:nth-child(6) { grid-area: card6; }
+    .spotlight-card:nth-child(7) { grid-area: card7; }
+    .spotlight-card:nth-child(8) { grid-area: card8; }
+
+    /* Remove hover effects for mobile */
+    .discover-grid .spotlight-card:hover img {
+        transform: none;
+    }
+}
+
+/* Large screens (1025px and above) */
+@media screen and (min-width: 1025px) {
+    .discover-grid {
+        display: grid;
+        grid-template-areas:
+            "visit visit visit visit"
+            "card1 card2 card3 card4"
+            "card5 card6 card7 card8";
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .visit-message {
+        grid-area: visit;
+    }
+
+    .spotlight-card:nth-child(1) { grid-area: card1; }
+    .spotlight-card:nth-child(2) { grid-area: card2; }
+    .spotlight-card:nth-child(3) { grid-area: card3; }
+    .spotlight-card:nth-child(4) { grid-area: card4; }
+    .spotlight-card:nth-child(5) { grid-area: card5; }
+    .spotlight-card:nth-child(6) { grid-area: card6; }
+    .spotlight-card:nth-child(7) { grid-area: card7; }
+    .spotlight-card:nth-child(8) { grid-area: card8; }
+
+    /* Hover effects only for large screens */
+    .discover-grid .spotlight-card img {
+        transition: transform 0.3s ease;
+    }
+
+    .discover-grid .spotlight-card:hover img {
+        transform: scale(1.05);
+    }
+}
+
+/* Base styles for all screen sizes */
+.discover-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.visit-message {
+    background-color: #2b5797;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.spotlight-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.spotlight-card figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.spotlight-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+} 

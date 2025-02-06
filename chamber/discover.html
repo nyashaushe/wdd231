@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover page for Timbuktu Chamber of Commerce - Explore local attractions and businesses">
+    <meta name="author" content="Nyasha Ushewokunze">
+    <title>Discover - Timbuktu Chamber of Commerce</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Facebook Open Graph Meta -->
+    <meta property="og:title" content="Discover Timbuktu">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://nyashaushe.github.io/wdd231/chamber/images/zim_flag.jpeg">
+    <meta property="og:url" content="https://nyashaushe.github.io/wdd231/chamber/discover.html">
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/medium.css">
+    <link rel="stylesheet" href="styles/mobile.css">
+    <link rel="stylesheet" href="styles/directory.css">
+    
+    <!-- JavaScript Links -->
+    <script src="scripts/index.js" defer></script>
+    <script src="scripts/discover.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Timbuktu Chamber of Commerce</h1>
+            <button id="hamburger-btn" aria-label="Menu">☰</button>
+            <nav id="primary-nav">
+                <ul>
+                    <li><a href="/chamber/index.html">Home</a></li>
+                    <li><a href="discover.html" class="active">Discover</a></li>
+                    <li><a href="directory.html">Business Directory</a></li>
+                    <li><a href="join.html">Join</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Events</a></li>
+                    <li><a href="podcast.html">Podcast</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="visit-message"></div>
+        
+        <section class="discover-grid">
+            <!-- Card 1 -->
+            <div class="spotlight-card">
+                <h2>Sankore Mosque</h2>
+                <figure>
+                    <img src="images/discover/sankore.webp" alt="Sankore Mosque" loading="lazy">
+                </figure>
+                <address>Sankore District, Timbuktu, Mali</address>
+                <p>Historic mosque and center of Islamic learning, part of Timbuktu's UNESCO World Heritage sites.</p>
+                <button class="button">Learn More</button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="spotlight-card">
+                <h2>Djinguereber Mosque</h2>
+                <figure>
+                    <img src="images/discover/djinguereber.webp" alt="Djinguereber Mosque" loading="lazy">
+                </figure>
+                <address>Central Timbuktu, Mali</address>
+                <p>Iconic mud-brick mosque built in 1327, showcasing Sudano-Sahelian architectural style.</p>
+                <button class="button">Learn More</button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="spotlight-card">
+                <h2>Ahmed Baba Institute</h2>
+                <figure>
+                    <img src="images/discover/ahmed-baba.webp" alt="Ahmed Baba Institute" loading="lazy">
+                </figure>
+                <address>Cultural District, Timbuktu, Mali</address>
+                <p>Modern library and research center housing ancient manuscripts and documents.</p>
+                <button class="button">Learn More</button>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="spotlight-card">
+                <h2>Timbuktu Markets</h2>
+                <figure>
+                    <img src="images/discover/market.webp" alt="Timbuktu Markets" loading="lazy">
+                </figure>
+                <address>Market District, Timbuktu, Mali</address>
+                <p>Vibrant traditional markets offering local crafts, spices, and cultural artifacts.</p>
+                <button class="button">Learn More</button>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="spotlight-card">
+                <h2>Sidi Yahya Mosque</h2>
+                <figure>
+                    <img src="images/discover/sidi-yahya.webp" alt="Sidi Yahya Mosque" loading="lazy">
+                </figure>
+                <address>Sidi Yahya District, Timbuktu, Mali</address>
+                <p>Historic mosque named after a holy man, featuring unique Sahelian architecture.</p>
+                <button class="button">Learn More</button>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="spotlight-card">
+                <h2>Desert Tours</h2>
+                <figure>
+                    <img src="images/discover/desert-tour.webp" alt="Desert Tours" loading="lazy">
+                </figure>
+                <address>Sahara Gateway, Timbuktu, Mali</address>
+                <p>Guided tours of the Sahara Desert, experiencing traditional Tuareg culture.</p>
+                <button class="button">Learn More</button>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="spotlight-card">
+                <h2>Manuscript Museum</h2>
+                <figure>
+                    <img src="images/discover/manuscripts.webp" alt="Manuscript Museum" loading="lazy">
+                </figure>
+                <address>Heritage District, Timbuktu, Mali</address>
+                <p>Museum showcasing ancient manuscripts and the rich literary history of Timbuktu.</p>
+                <button class="button">Learn More</button>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="spotlight-card">
+                <h2>Cultural Center</h2>
+                <figure>
+                    <img src="images/discover/cultural-center.webp" alt="Cultural Center" loading="lazy">
+                </figure>
+                <address>Arts District, Timbuktu, Mali</address>
+                <p>Modern facility hosting cultural events, exhibitions, and traditional performances.</p>
+                <button class="button">Learn More</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Timbuktu Chamber of Commerce | 10 Rue De La Paix | Timbuktu, Mali</p>
+        <p>Email: info@timbuktucc.org | Phone: (223) 555-2300</p>
+        <p>&copy; <span id="current-year"></span> Nyasha Ushewokunze | WDD 231 | Last Modified: <span id="last-modified"></span></p>
+    </footer>
+</body>
+</html> 
