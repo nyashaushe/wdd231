@@ -6,20 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (hamburgerBtn && primaryNav) {
         // Toggle menu when hamburger is clicked
-        hamburgerBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            primaryNav.classList.toggle('show');
-            const isExpanded = primaryNav.classList.contains('show');
-            hamburgerBtn.setAttribute('aria-expanded', isExpanded);
-            hamburgerBtn.innerHTML = isExpanded ? '✕' : '☰';
+        hamburgerBtn.addEventListener('click', function() {
+            document.getElementById('primary-nav').classList.toggle('show');
+            this.textContent = this.textContent === '☰' ? '✕' : '☰';
         });
 
         // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburgerBtn.contains(e.target) && !primaryNav.contains(e.target)) {
-                primaryNav.classList.remove('show');
-                hamburgerBtn.setAttribute('aria-expanded', 'false');
-                hamburgerBtn.innerHTML = '☰';
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('primary-nav');
+            const hamburger = document.getElementById('hamburger-btn');
+            
+            if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+                nav.classList.remove('show');
+                hamburger.textContent = '☰';
             }
         });
     }

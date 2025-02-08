@@ -1,43 +1,42 @@
-// Function to load discover data and create image cards
-async function loadDiscoverData() {
+// Function to load and display attractions
+async function loadAttractions() {
     try {
         const response = await fetch('data/discover.json');
         const data = await response.json();
-        const discoverGrid = document.querySelector('.discover-grid');
-
-        data.attractions.forEach(attraction => {
-            const card = document.createElement('div');
-            card.className = 'discover-card';
-
-            const img = document.createElement('img');
-            img.src = `images/${attraction.image}`;
-            img.alt = attraction.title;
-            img.loading = 'lazy'; // Enable lazy loading
-
-            const details = document.createElement('div');
-            details.className = 'card-details';
-            
-            details.innerHTML = `
-                <h2>${attraction.title}</h2>
-                <p class="address">${attraction.address}</p>
-                <p class="description">${attraction.description}</p>
-            `;
-
-            card.appendChild(img);
-            card.appendChild(details);
-            discoverGrid.appendChild(card);
-        });
+        displayAttractions(data.attractions);
     } catch (error) {
-        console.error('Error loading discover data:', error);
+        console.error('Error loading attractions:', error);
     }
 }
 
-// Function to handle visit message
-function handleVisitMessage() {
+// Function to display attractions
+function displayAttractions(attractions) {
+    const grid = document.querySelector('.discover-grid');
+    
+    attractions.forEach(attraction => {
+        const card = document.createElement('div');
+        card.className = 'discover-card';
+        
+        card.innerHTML = `
+            <img src="images/${attraction.image}" alt="${attraction.title}" loading="lazy">
+            <div class="discover-card-content">
+                <h2>${attraction.title}</h2>
+                <p class="address">${attraction.address}</p>
+                <p>${attraction.description}</p>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+// Function to handle visit tracking
+function handleVisitTracking() {
     const visitMessage = document.querySelector('.visit-message');
     const lastVisit = localStorage.getItem('lastVisit');
     const currentDate = new Date().getTime();
-
+    
     if (!lastVisit) {
         visitMessage.textContent = "Welcome! Let us know if you have any questions.";
     } else {
@@ -51,12 +50,12 @@ function handleVisitMessage() {
             visitMessage.textContent = `You last visited ${daysSinceLastVisit} days ago.`;
         }
     }
-
+    
     localStorage.setItem('lastVisit', currentDate);
 }
 
-// Initialize when the DOM is loaded
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    loadDiscoverData();
-    handleVisitMessage();
+    loadAttractions();
+    handleVisitTracking();
 }); 
