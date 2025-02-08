@@ -1,49 +1,62 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    // Handle visit message
+// Function to load discover data and create image cards
+async function loadDiscoverData() {
+    try {
+        const response = await fetch('data/discover.json');
+        const data = await response.json();
+        const discoverGrid = document.querySelector('.discover-grid');
+
+        data.attractions.forEach(attraction => {
+            const card = document.createElement('div');
+            card.className = 'discover-card';
+
+            const img = document.createElement('img');
+            img.src = `images/${attraction.image}`;
+            img.alt = attraction.title;
+            img.loading = 'lazy'; // Enable lazy loading
+
+            const details = document.createElement('div');
+            details.className = 'card-details';
+            
+            details.innerHTML = `
+                <h2>${attraction.title}</h2>
+                <p class="address">${attraction.address}</p>
+                <p class="description">${attraction.description}</p>
+            `;
+
+            card.appendChild(img);
+            card.appendChild(details);
+            discoverGrid.appendChild(card);
+        });
+    } catch (error) {
+        console.error('Error loading discover data:', error);
+    }
+}
+
+// Function to handle visit message
+function handleVisitMessage() {
     const visitMessage = document.querySelector('.visit-message');
     const lastVisit = localStorage.getItem('lastVisit');
-    const currentDate = Date.now();
+    const currentDate = new Date().getTime();
 
     if (!lastVisit) {
         visitMessage.textContent = "Welcome! Let us know if you have any questions.";
     } else {
-        const daysBetween = Math.floor((currentDate - lastVisit) / (1000 * 60 * 60 * 24));
+        const daysSinceLastVisit = Math.floor((currentDate - lastVisit) / (1000 * 60 * 60 * 24));
         
-        if (daysBetween < 1) {
+        if (daysSinceLastVisit < 1) {
             visitMessage.textContent = "Back so soon! Awesome!";
+        } else if (daysSinceLastVisit === 1) {
+            visitMessage.textContent = "You last visited 1 day ago.";
         } else {
-            visitMessage.textContent = `You last visited ${daysBetween} ${daysBetween === 1 ? 'day' : 'days'} ago.`;
+            visitMessage.textContent = `You last visited ${daysSinceLastVisit} days ago.`;
         }
     }
 
     localStorage.setItem('lastVisit', currentDate);
+}
 
-    // Load and display attractions from JSON
-    try {
-        const response = await fetch('data/discover.json');
-        if (!response.ok) throw new Error('Failed to fetch data');
-        const data = await response.json();
-        
-        const discoverGrid = document.querySelector('.discover-grid');
-        discoverGrid.innerHTML = ''; // Clear existing content
-
-        data.attractions.forEach((attraction, index) => {
-            const card = document.createElement('div');
-            card.className = 'spotlight-card';
-            card.innerHTML = `
-                <h2>${attraction.title}</h2>
-                <figure>
-                    <img src="images/discover/${attraction.image}" 
-                         alt="${attraction.title}" 
-                         loading="lazy">
-                </figure>
-                <address>${attraction.address}</address>
-                <p>${attraction.description}</p>
-                <button class="button">Learn More</button>
-            `;
-            discoverGrid.appendChild(card);
-        });
-    } catch (error) {
-        console.error('Error loading attractions:', error);
-    }
+// Initialize when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    loadDiscoverData();
+    handleVisitMessage();
 }); 
