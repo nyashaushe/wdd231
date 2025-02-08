@@ -1,3 +1,25 @@
+/* Add these styles at the top of the file */
+main h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5rem;
+    margin: 2rem 0;
+    padding-bottom: 0.5rem;
+    position: relative;
+}
+
+main h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #0066cc;
+    border-radius: 2px;
+}
+
 /* Grid Layout */
 .discover-grid {
     display: grid;
