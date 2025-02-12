@@ -115,6 +115,8 @@ function generateNewsHTML(articles) {
                     <img src="${article.urlToImage || 'images/news-placeholder.jpg'}" 
                          alt="${article.title}"
                          loading="lazy"
+                         width="300"
+                         height="200"
                          onerror="this.src='images/news-placeholder.jpg'">
                     <div class="news-content">
                         <h2>${article.title || 'No Title Available'}</h2>
@@ -417,13 +419,11 @@ async function loadPageContent(page) {
                 dataFile = 'home';
         }
 
-        console.log('Fetching data file:', dataFile);
         const response = await fetch(`data/${dataFile}.json`);
         if (!response.ok) {
             throw new Error(`Failed to load ${dataFile}.json: ${response.status}`);
         }
         const data = await response.json();
-        console.log('Data loaded:', data);
         
         switch(page) {
             case 'index.html':
