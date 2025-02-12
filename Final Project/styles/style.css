@@ -82,6 +82,7 @@ nav {
     letter-spacing: 1px;
     text-shadow: 0 1px 2px rgba(0,0,0,0.2);
     position: relative;
+    background-color: transparent;
 }
 
 .nav-menu a::after {
@@ -122,6 +123,8 @@ nav {
     padding: 2rem;
     position: relative;
     z-index: 2;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .hero h1 {
@@ -278,10 +281,11 @@ nav {
 }
 
 .news-card {
-    background-color: white;
+    background: white;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
 .news-card img {
@@ -627,16 +631,6 @@ main {
     margin-top: 2rem;
 }
 
-.news-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
 .news-card h2 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
@@ -688,15 +682,6 @@ main {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-}
-
-.news-meta {
-    margin-top: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 .source {
@@ -910,4 +895,50 @@ main {
         margin-left: 0;
         align-self: flex-end;
     }
+}
+
+/* Fix text-rendering property */
+.fa, .fab, .far, .fas {
+    text-rendering: optimizeLegibility;
+}
+
+/* Fix animation delays using standard syntax */
+.fa-beat, .fa-bounce, .fa-fade, .fa-flip, .fa-shake, .fa-spin {
+    animation-delay: 0s;
+}
+
+/* Fix transform rotate */
+.fa-rotate-by {
+    transform: rotate(0deg);
+}
+
+/* Add background colors where missing */
+.nav-menu a {
+    color: white;
+    background-color: transparent;
+}
+
+.social-links a {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Add text colors where missing */
+.hero-content {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Fix duplicate properties */
+.news-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Add generic font families */
+.fa {
+    font-family: "Font Awesome 6 Free", sans-serif;
 } 
