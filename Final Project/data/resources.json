@@ -1,0 +1,62 @@
+{
+    "header": {
+        "title": "Resources",
+        "subtitle": "Educational materials and tools for climate activism"
+    },
+    "resources": [
+        {
+            "title": "Climate Science Basics",
+            "description": "Learn the fundamental science behind climate change and its impacts.",
+            "links": [
+                {
+                    "text": "Understanding Global Warming",
+                    "url": "#"
+                },
+                {
+                    "text": "Climate Change Effects",
+                    "url": "#"
+                },
+                {
+                    "text": "Scientific Consensus",
+                    "url": "#"
+                }
+            ]
+        },
+        {
+            "title": "Activist Toolkit",
+            "description": "Resources for organizing and participating in climate actions.",
+            "links": [
+                {
+                    "text": "Strike Organization Guide",
+                    "url": "#"
+                },
+                {
+                    "text": "Social Media Kit",
+                    "url": "#"
+                },
+                {
+                    "text": "Protest Safety Tips",
+                    "url": "#"
+                }
+            ]
+        },
+        {
+            "title": "Educational Materials",
+            "description": "Resources for schools and educational institutions.",
+            "links": [
+                {
+                    "text": "Classroom Activities",
+                    "url": "#"
+                },
+                {
+                    "text": "Presentation Templates",
+                    "url": "#"
+                },
+                {
+                    "text": "Research Guidelines",
+                    "url": "#"
+                }
+            ]
+        }
+    ]
+} 

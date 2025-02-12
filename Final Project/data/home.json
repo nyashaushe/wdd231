@@ -1,0 +1,71 @@
+{
+    "hero": {
+        "title": "Join the Climate Action Movement",
+        "subtitle": "Together we can make a difference in the fight against climate change",
+        "ctaText": "Get Involved",
+        "ctaLink": "get-involved.html"
+    },
+    "mission": {
+        "description": "Fridays for Future is a youth-led global climate strike movement. Our mission is to unite people across the globe to demand urgent action on climate change from our world leaders. Through peaceful protests and advocacy, we strive to create a sustainable future for all."
+    },
+    "latestUpdates": {
+        "title": "Latest Updates",
+        "updates": [
+            {
+                "title": "Global Strike Success",
+                "date": "2024-03-15",
+                "description": "Millions joined worldwide in our latest climate action.",
+                "link": "#"
+            },
+            {
+                "title": "New Climate Policy Victory",
+                "date": "2024-03-10",
+                "description": "Major policy change achieved through youth activism.",
+                "link": "#"
+            }
+        ]
+    },
+    "getInvolved": {
+        "title": "Ways to Get Involved",
+        "sections": [
+            {
+                "title": "Join Local Strikes",
+                "description": "Find and participate in climate strikes in your area. Your voice matters in the fight against climate change.",
+                "link": "get-involved.html#strikes"
+            },
+            {
+                "title": "Start a Chapter",
+                "description": "Learn how to start a Fridays for Future chapter in your community and lead local climate action.",
+                "link": "get-involved.html#start-chapter"
+            },
+            {
+                "title": "Online Activism",
+                "description": "Participate in digital strikes and online campaigns. Make your voice heard from anywhere.",
+                "link": "get-involved.html#online"
+            }
+        ]
+    },
+    "events": [
+        {
+            "title": "Global Climate Strike",
+            "date": "2024-03-15",
+            "location": "Worldwide",
+            "description": "Join millions worldwide in the next global climate strike.",
+            "link": "news.html#global-strike"
+        },
+        {
+            "title": "Youth Climate Summit",
+            "date": "2024-04-22",
+            "location": "Virtual Event",
+            "description": "Annual youth climate conference on Earth Day.",
+            "link": "news.html#summit"
+        },
+        {
+            "title": "Local Climate Action Day",
+            "date": "2024-05-01",
+            "location": "Your City",
+            "description": "Community-led climate action initiatives and workshops.",
+            "link": "news.html#local-action"
+        }
+    ]
+} 

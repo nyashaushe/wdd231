@@ -1,0 +1,7 @@
+<svg width="150" height="50" xmlns="http://www.w3.org/2000/svg">
+    <text x="10" y="35" font-family="Montserrat" font-weight="700" font-size="24" fill="#2E7D32" letter-spacing="2">
+        FUTURE
+    </text>
+    <path d="M120,25 Q130,15 140,25 T160,25" stroke="#81C784" stroke-width="2" fill="none"/>
+    <circle cx="140" cy="20" r="3" fill="#2E7D32"/>
+</svg> 
