@@ -720,7 +720,7 @@ main {
 }
 
 .mission-image img {
-    width: 100%;
+    width: 75%;
     height: 400px;
     object-fit: cover;
     border-radius: 8px;
@@ -827,6 +827,11 @@ main {
 
     .mission-content {
         padding-right: 0;
+    }
+
+    .mission-image img {
+        width: 100%;
+        height: auto;
     }
 
     .impact-stats {

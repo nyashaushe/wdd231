@@ -168,7 +168,7 @@ function generateHomeContent(data) {
                 <p>${data.mission.description}</p>
             </div>
             <div class="mission-image">
-                <img src="images/mission-image.jpg" alt="Climate activists" loading="lazy">
+                <img src="images/mission-image.jpeg" alt="Climate activists" loading="lazy" >
             </div>
         </section>
 
@@ -194,7 +194,6 @@ function generateHomeContent(data) {
     `;
 }
 
-// Add these missing functions that were referenced but not defined
 function generateGetInvolvedSection(data) {
     return `
         <section class="get-involved">
