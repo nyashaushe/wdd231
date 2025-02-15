@@ -48,13 +48,23 @@
         newsContainer.innerHTML = '<div class="loading">Loading latest climate news...</div>';
         
         try {
+            console.log('Fetching climate news...');
             const articles = await fetchClimateNews();
-            newsContainer.innerHTML = generateNewsHTML(articles);
+            console.log('Received articles:', articles);
+            
+            if (!articles || articles.length === 0) {
+                throw new Error('No articles received');
+            }
+            
+            const newsHtml = generateNewsHTML(articles);
+            console.log('Generated HTML:', newsHtml.substring(0, 100) + '...'); // Log first 100 chars
+            newsContainer.innerHTML = newsHtml;
         } catch (error) {
             console.error('Error loading news:', error);
             newsContainer.innerHTML = `
                 <div class="error-message">
                     <h3>Error Loading News</h3>
+                    <p>Error details: ${error.message}</p>
                     <p>Sorry, we couldn't load the latest news. Please try again later.</p>
                     <button onclick="location.reload()">Retry</button>
                 </div>

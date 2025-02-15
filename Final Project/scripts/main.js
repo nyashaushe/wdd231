@@ -53,16 +53,20 @@ async function fetchClimateNews() {
     });
 
     try {
-        console.log('Fetching news...');
+        console.log('Fetching news from:', `${NEWS_API_ENDPOINT}?${params}`);
         const response = await fetch(`${NEWS_API_ENDPOINT}?${params}`, {
             headers: {
                 'X-Api-Key': NEWS_API_KEY
-            }
+            },
+            mode: 'cors', // Add CORS mode explicitly
+            cache: 'no-cache' // Prevent caching issues
         });
         
         console.log('Response status:', response.status);
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorText = await response.text();
+            console.error('API Error response:', errorText);
+            throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
         }
         
         const data = await response.json();
@@ -71,30 +75,29 @@ async function fetchClimateNews() {
         if (data.status === 'error') {
             throw new Error(data.message || 'Failed to fetch news');
         }
+
+        // Add fallback data in case of API limits
+        if (!data.articles || data.articles.length === 0) {
+            return [{
+                title: "Climate Action News Temporarily Unavailable",
+                description: "We're currently experiencing technical difficulties with our news feed. Please check back later for updates on climate action news.",
+                publishedAt: new Date().toISOString(),
+                source: { name: "Fridays for Future" },
+                url: "#"
+            }];
+        }
         
-        // Filter articles to ensure they're climate-related
-        const filteredArticles = data.articles.filter(article => {
-            const climateKeywords = [
-                'climate',
-                'global warming',
-                'environmental',
-                'carbon',
-                'emission',
-                'renewable',
-                'sustainability',
-                'fridays for future',
-                'climate strike',
-                'greta thunberg'
-            ];
-            
-            const content = `${article.title} ${article.description}`.toLowerCase();
-            return climateKeywords.some(keyword => content.includes(keyword.toLowerCase()));
-        });
-        
-        return filteredArticles;
+        return data.articles;
     } catch (error) {
-        console.error('Error fetching news:', error);
-        throw error;
+        console.error('Error in fetchClimateNews:', error);
+        // Return fallback data in case of any error
+        return [{
+            title: "Error Loading Climate News",
+            description: `We encountered an error: ${error.message}. Please try again later.`,
+            publishedAt: new Date().toISOString(),
+            source: { name: "Fridays for Future" },
+            url: "#"
+        }];
     }
 }
 
@@ -112,12 +115,14 @@ function generateNewsHTML(articles) {
         <section class="news-grid">
             ${articles.map(article => `
                 <article class="news-card">
-                    <img src="${article.urlToImage || 'images/news-placeholder.jpg'}" 
-                         alt="${article.title}"
-                         loading="lazy"
-                         width="300"
-                         height="200"
-                         onerror="this.src='images/news-placeholder.jpg'">
+                    ${article.urlToImage ? `
+                        <img src="${article.urlToImage}" 
+                             alt="${article.title}"
+                             loading="lazy"
+                             width="300"
+                             height="200"
+                             onerror="this.src='images/news-placeholder.jpg'">
+                    ` : ''}
                     <div class="news-content">
                         <h2>${article.title || 'No Title Available'}</h2>
                         <p class="date">${new Date(article.publishedAt).toLocaleDateString()}</p>
@@ -125,9 +130,11 @@ function generateNewsHTML(articles) {
                         <div class="news-meta">
                             <span class="source">${article.source?.name || 'Unknown Source'}</span>
                             <span class="category">Climate News</span>
-                            <a href="${article.url}" class="read-more" target="_blank" rel="noopener noreferrer">
-                                Read More
-                            </a>
+                            ${article.url !== '#' ? `
+                                <a href="${article.url}" class="read-more" target="_blank" rel="noopener noreferrer">
+                                    Read More
+                                </a>
+                            ` : ''}
                         </div>
                     </div>
                 </article>
