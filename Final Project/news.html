@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/main.js" type="module" defer></script>
+    <script src="scripts/main.js" type="module"></script>
 </head>
 <body>
     <header>
@@ -40,14 +40,16 @@
 
     <footer></footer>
 
-    <script>
+    <script type="module">
+    import { fetchClimateNews, generateNewsHTML } from './scripts/main.js';
+
     document.addEventListener('DOMContentLoaded', async () => {
         const newsContainer = document.querySelector('.news-container');
         newsContainer.innerHTML = '<div class="loading">Loading latest climate news...</div>';
         
         try {
-            const articles = await fetchClimateNews(); // Using the existing function from main.js
-            newsContainer.innerHTML = generateNewsHTML(articles); // Using the existing function from main.js
+            const articles = await fetchClimateNews();
+            newsContainer.innerHTML = generateNewsHTML(articles);
         } catch (error) {
             console.error('Error loading news:', error);
             newsContainer.innerHTML = `

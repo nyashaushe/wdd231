@@ -440,4 +440,7 @@ async function loadPageContent(page) {
             </div>
         `;
     }
-} 
+}
+
+// Export the news functions so they can be used in news.html
+export { fetchClimateNews, generateNewsHTML }; 
