@@ -39,5 +39,26 @@
     </main>
 
     <footer></footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const newsContainer = document.querySelector('.news-container');
+        newsContainer.innerHTML = '<div class="loading">Loading latest climate news...</div>';
+        
+        try {
+            const articles = await fetchClimateNews(); // Using the existing function from main.js
+            newsContainer.innerHTML = generateNewsHTML(articles); // Using the existing function from main.js
+        } catch (error) {
+            console.error('Error loading news:', error);
+            newsContainer.innerHTML = `
+                <div class="error-message">
+                    <h3>Error Loading News</h3>
+                    <p>Sorry, we couldn't load the latest news. Please try again later.</p>
+                    <button onclick="location.reload()">Retry</button>
+                </div>
+            `;
+        }
+    });
+    </script>
 </body>
 </html> 
